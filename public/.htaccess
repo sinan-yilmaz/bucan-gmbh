@@ -1,0 +1,12 @@
+ErrorDocument 404 /404.html
+
+# Langzeit-Caching für unveränderliche Build-Assets
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^/_next/static/" NEXT_STATIC_ASSET
+  Header set Cache-Control "public, max-age=31536000, immutable" env=NEXT_STATIC_ASSET
+</IfModule>
+
+# Direkten HTTP-Zugriff auf die SMTP-Konfiguration sperren
+<Files "kontakt-config.php">
+  Require all denied
+</Files>
