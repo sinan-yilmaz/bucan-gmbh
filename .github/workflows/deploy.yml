@@ -1,0 +1,68 @@
+name: Deploy auf Strato
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node 22 einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Abhängigkeiten installieren
+        run: yarn install --frozen-lockfile
+
+      - name: kontakt-config.php erzeugen
+        env:
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: |
+          smtp_pass=$(printf '%s' "$SMTP_PASSWORD" | sed -e 's/\\/\\\\/g' -e "s/'/\\\\'/g")
+          cat > public/kontakt-config.php <<PHP
+          <?php
+
+          return [
+              'smtp_host' => 'smtp.strato.de',
+              'smtp_port' => 465,
+              'smtp_user' => 'info@bucan-eventservice.de',
+              'smtp_pass' => '$smtp_pass',
+              'from'      => 'info@bucan-eventservice.de',
+              'to'        => 'info@bucan-eventservice.de',
+          ];
+          PHP
+
+      - name: Seite bauen
+        run: yarn build
+
+      - name: Sanity-Check vor dem Upload
+        run: |
+          test -f out/index.html || { echo "::error::out/index.html fehlt - Build unvollständig"; exit 1; }
+          test -f out/kontakt-config.php || { echo "::error::out/kontakt-config.php fehlt - Config wurde nicht erzeugt"; exit 1; }
+
+      - name: lftp installieren
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      # SFTP-Benutzer ist auf /website eingesperrt, Zielpfad daher "."
+      - name: Deploy per SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp --env-password -u "$SFTP_USER" "sftp://$SFTP_HOST" \
+            -e "set sftp:auto-confirm yes; mirror -R --delete --verbose out/ .; bye"
