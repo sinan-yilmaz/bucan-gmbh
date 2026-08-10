@@ -23,7 +23,7 @@ if (!is_file($configPfad)) {
 }
 $config = require $configPfad;
 
-// Honeypot: Bots füllen das unsichtbare Feld — stillschweigend verwerfen
+// Honeypot: Bots füllen das unsichtbare Feld, deshalb stillschweigend verwerfen
 if (trim((string) ($_POST['firma'] ?? '')) !== '') {
     antwort(200, ['ok' => true]);
 }

@@ -33,7 +33,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# SMTP-Zugangsdaten (echte Config nur manuell auf dem Server)
+# SMTP-Zugangsdaten (bleiben lokal, der Deploy-Workflow erzeugt die Datei im CI)
 /public/kontakt-config.php
 
 # vercel
