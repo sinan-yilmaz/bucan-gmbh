@@ -67,6 +67,8 @@ function LegalPageShell({
         </div>
       </header>
       <main
+        id="inhalt"
+        tabIndex={-1}
         style={{
           maxWidth: 760,
           margin: "0 auto",

@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Great_Vibes, Jost, Marcellus } from "next/font/google";
+import { SkipLink } from "core/components/navigation";
 import { site } from "core/consts/content";
 import "assets/css/globals.css";
 
@@ -30,13 +31,21 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0E2318",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="de"
+      data-scroll-behavior="smooth"
       className={`${marcellus.variable} ${jost.variable} ${greatVibes.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SkipLink />
+        {children}
+      </body>
     </html>
   );
 }

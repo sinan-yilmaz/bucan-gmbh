@@ -4,6 +4,7 @@ import ImpressumPage from "views/impressum/ImpressumPage";
 
 export const metadata: Metadata = {
   title: site.impressumTitle,
+  description: site.impressumDescription,
   alternates: { canonical: "/impressum/" },
 };
 

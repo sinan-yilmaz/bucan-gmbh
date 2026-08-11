@@ -4,6 +4,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  background: #0e2318;
 }
 body {
   margin: 0;
@@ -104,6 +105,111 @@ button {
 /* Bilder blenden beim Laden weich ein */
 .img-fade {
   transition: opacity 0.6s ease;
+}
+
+/* Skip-Link: nur bei Tastaturfokus sichtbar */
+.skip-link {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 100;
+  padding: 13px 22px;
+  background: #c2a25e;
+  color: #0e2318;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 20px));
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* Header der Startseite */
+[data-hd-nav] {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 30px);
+  flex-wrap: wrap;
+}
+[data-hd-burger] {
+  display: none;
+}
+[data-hd-overlay] {
+  display: none;
+}
+@media (max-width: 767px) {
+  [data-hd-nav] {
+    display: none;
+  }
+  [data-hd-burger] {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+    margin-right: -8px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  [data-hd-burger] span {
+    width: 26px;
+    height: 1.5px;
+    background: #c2a25e;
+    transition: transform 0.3s ease;
+  }
+  [data-hd-burger][data-offen] span:first-child {
+    transform: translateY(4.25px) rotate(45deg);
+  }
+  [data-hd-burger][data-offen] span:last-child {
+    transform: translateY(-4.25px) rotate(-45deg);
+  }
+  [data-hd-overlay] {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: #0e2318;
+    padding: 120px 32px calc(44px + env(safe-area-inset-bottom));
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
+  [data-hd-overlay][data-offen] {
+    opacity: 1;
+    visibility: visible;
+  }
+  [data-hd-overlay] nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5vh;
+  }
+  [data-hd-overlay] nav a {
+    font-family: var(--font-marcellus), serif;
+    font-size: 27px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 9px 18px;
+    opacity: 0;
+  }
+  [data-hd-overlay][data-offen] nav a {
+    animation: bucanRise 0.5s ease both;
+  }
+  [data-hd-unten] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: auto;
+  }
 }
 
 /* Footer der Startseite */

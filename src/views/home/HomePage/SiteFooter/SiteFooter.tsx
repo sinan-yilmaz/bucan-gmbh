@@ -71,22 +71,23 @@ function SiteFooter() {
                 {kontakt.email}
               </a>
             </p>
-            <p style={{ margin: "8px 0 0" }}>
-              <a
-                href={kontakt.instagramHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lnk-cream"
-                style={{
-                  fontSize: 14,
-                  letterSpacing: ".06em",
-                  textDecoration: "none",
-                  borderBottom: "1px solid rgba(194,162,94,.5)",
-                  paddingBottom: 2,
-                }}
+            <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 8 }}>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#B9B29E"
+                strokeWidth="1.6"
+                aria-hidden="true"
               >
-                {kontakt.instagramLabel}
-              </a>
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                <circle cx="12" cy="12" r="4.4" />
+                <circle cx="17.6" cy="6.4" r="1.15" fill="#B9B29E" stroke="none" />
+              </svg>
+              <span style={{ fontSize: 14, letterSpacing: ".06em" }}>
+                {kontakt.instagramLabel} {kontakt.instagramHinweis}
+              </span>
             </p>
           </div>
         </div>

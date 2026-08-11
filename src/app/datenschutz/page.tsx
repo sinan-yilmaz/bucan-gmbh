@@ -4,6 +4,7 @@ import DatenschutzPage from "views/datenschutz/DatenschutzPage";
 
 export const metadata: Metadata = {
   title: site.datenschutzTitle,
+  description: site.datenschutzDescription,
   alternates: { canonical: "/datenschutz/" },
 };
 

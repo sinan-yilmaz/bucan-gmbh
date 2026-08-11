@@ -16,7 +16,7 @@ function HomePage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <HeroSection />
         <WerteSection />
         <LeistungenSection />

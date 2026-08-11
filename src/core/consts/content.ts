@@ -29,13 +29,21 @@ export type Standort = {
 
 export const site = {
   url: "https://bucan-eventservice.de",
-  title: "Bucan GmbH – Premium Catering & Eventservice in Günzburg",
+  title: "Premium Catering & Eventservice in Günzburg – Bucan GmbH",
   description:
     "Mediterrane Feinkost, Business Catering und Eventservice – 25 Jahre Erfahrung, alles aus einer Hand. Jetzt unverbindlich Ihr Event anfragen.",
   impressumTitle: "Impressum – Bucan GmbH",
+  impressumDescription:
+    "Impressum der Bucan GmbH in Günzburg: Anbieterkennzeichnung, Kontaktdaten und rechtliche Hinweise zu Catering, Feinkost und Eventservice.",
   datenschutzTitle: "Datenschutzerklärung – Bucan GmbH",
+  datenschutzDescription:
+    "Datenschutzerklärung der Bucan GmbH: Informationen zur Verarbeitung Ihrer Daten beim Besuch der Website und bei Anfragen über das Kontaktformular.",
   notFoundTitle: "Seite nicht gefunden – Bucan GmbH",
   ogImage: "/og-image.jpg",
+} as const;
+
+export const a11y = {
+  zumInhalt: "Zum Inhalt springen",
 } as const;
 
 export const kontakt = {
@@ -53,6 +61,7 @@ export const kontakt = {
     "https://www.google.com/maps/search/?api=1&query=Dillinger+Stra%C3%9Fe+36,+89312+G%C3%BCnzburg",
   instagramHref: "https://www.instagram.com/bucanevent",
   instagramLabel: "Instagram",
+  instagramHinweis: "(bald verfügbar)",
 } as const;
 
 export const marke = {
@@ -63,6 +72,8 @@ export const marke = {
 
 export const nav = {
   ariaLabel: "Hauptnavigation",
+  menueOeffnen: "Menü öffnen",
+  menueSchliessen: "Menü schließen",
   links: [
     { label: "Leistungen", href: "#leistungen" },
     { label: "Über uns", href: "#ueber-uns" },
@@ -117,7 +128,7 @@ export const werte = {
 
 export const leistungen = {
   eyebrow: "Leistungen",
-  titel: "Was wir für Sie tun.",
+  titel: "Catering, Feinkost & Eventservice.",
   karten: [
     {
       titel: "Catering & Buffets",
@@ -306,7 +317,7 @@ export const ablauf = {
 
 export const kontaktSektion = {
   eyebrow: "Kontakt",
-  titel: "Lassen Sie uns gemeinsam unvergessliche Momente schaffen.",
+  titel: "Lassen Sie uns unvergessliche Momente schaffen.",
   formular: {
     titel: "Event anfragen",
     felder: {
@@ -340,7 +351,7 @@ export const kontaktSektion = {
     fehlerServer:
       "Ihre Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut.",
     fehlerNetz:
-      "Das Formular ist momentan nicht erreichbar. Sie erreichen uns direkt:",
+      "Das Formular ist momentan nicht verfügbar. Sie erreichen uns direkt:",
   },
   direkt: {
     titel: "Direkt erreichen",
