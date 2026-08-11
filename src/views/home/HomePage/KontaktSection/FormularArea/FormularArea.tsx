@@ -226,38 +226,21 @@ function FormularArea() {
               autoComplete="off"
             />
           </div>
-          <label
+          <p
             style={{
               gridColumn: "1/-1",
-              display: "flex",
-              gap: 10,
-              alignItems: "flex-start",
+              margin: 0,
               fontSize: 13.5,
               lineHeight: 1.55,
               color: "#5C574B",
-              cursor: "pointer",
             }}
           >
-            <input
-              type="checkbox"
-              name="datenschutz"
-              required
-              style={{
-                margin: "3px 0 0",
-                width: 16,
-                height: 16,
-                accentColor: "#0E2318",
-                flexShrink: 0,
-              }}
-            />
-            <span>
-              {formular.datenschutzVor}
-              <Link href="/datenschutz/" style={{ color: "#806429" }}>
-                {formular.datenschutzLink}
-              </Link>
-              {formular.datenschutzNach}
-            </span>
-          </label>
+            {formular.hinweisVor}
+            <Link href="/datenschutz/" style={{ color: "#806429" }}>
+              {formular.hinweisLink}
+            </Link>
+            {formular.hinweisNach}
+          </p>
           {status === "error" ? (
             <div style={{ gridColumn: "1/-1", ...hinweisBoxStyle }} role="alert">
               {fehlerText}

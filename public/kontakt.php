@@ -41,9 +41,8 @@ $datum       = trim((string) ($_POST['datum'] ?? ''));
 $anlass      = trim((string) ($_POST['anlass'] ?? ''));
 $personen    = trim((string) ($_POST['personen'] ?? ''));
 $nachricht   = trim((string) ($_POST['nachricht'] ?? ''));
-$datenschutz = (string) ($_POST['datenschutz'] ?? '');
 
-if ($name === '' || $email === '' || $nachricht === '' || $datenschutz === '') {
+if ($name === '' || $email === '' || $nachricht === '') {
     antwort(400, ['ok' => false, 'error' => 'Bitte füllen Sie alle Pflichtfelder aus.']);
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

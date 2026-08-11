@@ -61,7 +61,7 @@ export const kontakt = {
     "https://www.google.com/maps/search/?api=1&query=Dillinger+Stra%C3%9Fe+36,+89312+G%C3%BCnzburg",
   instagramHref: "https://www.instagram.com/bucanevent",
   instagramLabel: "Instagram",
-  instagramHinweis: "(bald verfügbar)",
+  instagramHinweis: "(im Aufbau)",
 } as const;
 
 export const marke = {
@@ -338,10 +338,10 @@ export const kontaktSektion = {
       "Sonstiges",
     ],
     anlassPlaceholder: "Bitte wählen",
-    datenschutzVor: "Ich habe die ",
-    datenschutzLink: "Datenschutzerklärung",
-    datenschutzNach:
-      " gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. *",
+    hinweisVor:
+      "Ihre Angaben verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage. Weitere Informationen: ",
+    hinweisLink: "Datenschutzerklärung",
+    hinweisNach: ".",
     absenden: "Anfrage senden",
     sendet: "Wird gesendet …",
     erfolg: {
