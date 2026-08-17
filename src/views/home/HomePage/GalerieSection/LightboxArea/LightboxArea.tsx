@@ -142,7 +142,7 @@ function LightboxArea({
         justifyContent: "center",
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element -- Großansicht in Originalgröße, bewusst ohne Lazy-Loading */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
         src={bild.src.src}

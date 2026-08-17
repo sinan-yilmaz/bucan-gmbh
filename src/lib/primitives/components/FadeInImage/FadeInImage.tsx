@@ -36,7 +36,7 @@ function FadeInImage({
   }, []);
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- statischer Export mit unoptimierten Bildern
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={ref}
       src={src.src}

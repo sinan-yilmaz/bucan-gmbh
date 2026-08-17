@@ -23,12 +23,12 @@ if (!is_file($configPfad)) {
 }
 $config = require $configPfad;
 
-// Honeypot: Bots füllen das unsichtbare Feld, deshalb stillschweigend verwerfen
+// honeypot filled: bot, pretend success
 if (trim((string) ($_POST['firma'] ?? '')) !== '') {
     antwort(200, ['ok' => true]);
 }
 
-// Zeitcheck: Absenden unter 3 Sekunden nach Seitenaufruf verwerfen
+// reject submits faster than 3s after page load
 $dauer = (string) ($_POST['dauer'] ?? '');
 if ($dauer === '' || !ctype_digit($dauer) || (int) $dauer < 3000) {
     antwort(400, ['ok' => false, 'error' => 'Bitte senden Sie das Formular erneut ab.']);

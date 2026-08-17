@@ -8,8 +8,8 @@ html {
 }
 body {
   margin: 0;
-  /* Dunkelgrün als Farbe für die Safari-Statusleiste, gemalt wird Creme:
-     iOS liest nur die background-color, nicht das Gradient-Bild */
+  /* iOS Safari takes the status bar color from background-color only,
+     the gradient image paints the actual cream page background */
   background-color: #0e2318;
   background-image: linear-gradient(#f7f3ea, #f7f3ea);
   color: #2b2a26;
@@ -78,13 +78,12 @@ button {
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
-  /* Sanfte Bild-Fades bleiben erhalten, nur Bewegung/Zoom entfällt */
+  /* keep the soft image fade, only movement/zoom is disabled */
   .img-fade {
     transition-duration: 0.4s !important;
   }
 }
 
-/* Screenreader-only (versteckte Zwischenüberschriften) */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -95,7 +94,7 @@ button {
   white-space: nowrap;
 }
 
-/* Honeypot-Feld: unsichtbar, aber für Bots ausfüllbar */
+/* honeypot: off-screen but still fillable by bots */
 .hp-field {
   position: absolute;
   left: -9999px;
@@ -105,12 +104,10 @@ button {
   overflow: hidden;
 }
 
-/* Bilder blenden beim Laden weich ein */
 .img-fade {
   transition: opacity 0.6s ease;
 }
 
-/* Skip-Link: nur bei Tastaturfokus sichtbar */
 .skip-link {
   position: fixed;
   top: 14px;
@@ -130,7 +127,6 @@ button {
   transform: none;
 }
 
-/* Header der Startseite */
 [data-hd-nav] {
   display: flex;
   align-items: center;
@@ -217,7 +213,6 @@ button {
   }
 }
 
-/* Ablauf-Sektion: Faden-Animation, an den Scroll-Fortschritt gebunden */
 [data-ab-mask] {
   overflow: hidden;
 }
@@ -317,7 +312,6 @@ button {
   }
 }
 
-/* Footer der Startseite */
 [data-ft-top] {
   display: flex;
   flex-wrap: wrap;
@@ -351,7 +345,6 @@ button {
   }
 }
 
-/* Hover-/Focus-Zustände (aus style-hover / style-focus der Referenz) */
 .lnk-nav {
   color: #ede7d8;
 }

@@ -73,7 +73,7 @@ function FormularArea() {
         setFehlerText(formular.fehlerServer);
         setStatus("error");
       } else {
-        // 2xx ohne gültige JSON-Antwort: Endpoint nicht funktionsfähig (z. B. lokale Entwicklung)
+        // 2xx without a JSON body: endpoint not available (e.g. local dev)
         setStatus("offline");
       }
     } catch {
