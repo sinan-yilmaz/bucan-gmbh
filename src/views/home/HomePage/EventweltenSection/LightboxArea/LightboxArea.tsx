@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { MouseEvent, TouchEvent } from "react";
-import { galerie } from "core/consts/content";
+import { eventwelten } from "core/consts/content";
 
 type LightboxAreaProps = {
   index: number;
@@ -20,9 +20,9 @@ function LightboxArea({
   const touchX = useRef<number | null>(null);
   const mounted = useRef(false);
 
-  const bilder = galerie.bilder;
-  const anzahl = bilder.length;
-  const bild = bilder[index];
+  const karten = eventwelten.karten;
+  const anzahl = karten.length;
+  const karte = karten[index];
   const navDisplay = anzahl > 1 ? "flex" : "none";
 
   useEffect(() => {
@@ -102,11 +102,11 @@ function LightboxArea({
     }
     if (anzahl < 2) return;
     [index - 1, index + 1].forEach((nachbar) => {
-      const src = bilder[((nachbar % anzahl) + anzahl) % anzahl].src.src;
+      const src = karten[((nachbar % anzahl) + anzahl) % anzahl].bild.src.src;
       const preload = new Image();
       preload.src = src;
     });
-  }, [index, anzahl, bilder]);
+  }, [index, anzahl, karten]);
 
   const handleBackdropClick = (event: MouseEvent) => {
     if (event.target === event.currentTarget) onClose();
@@ -128,7 +128,7 @@ function LightboxArea({
       ref={overlayRef}
       role="dialog"
       aria-modal="true"
-      aria-label={galerie.lightbox.label}
+      aria-label={eventwelten.lightbox.label}
       onClick={handleBackdropClick}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -136,30 +136,46 @@ function LightboxArea({
         position: "fixed",
         inset: 0,
         zIndex: 120,
-        background: "rgba(9,22,15,.92)",
+        background: "rgba(9,22,15,.94)",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        gap: 18,
+        padding: "70px 16px 64px",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
-        src={bild.src.src}
-        alt={bild.alt}
+        src={karte.bild.src.src}
+        alt={karte.bild.alt}
         style={{
           maxWidth: "min(90vw,1360px)",
-          maxHeight: "84vh",
+          maxHeight: "calc(100vh - 190px)",
           objectFit: "contain",
           display: "block",
           boxShadow: "0 40px 90px rgba(0,0,0,.55)",
         }}
       />
+      <p
+        style={{
+          margin: 0,
+          fontFamily: "var(--font-marcellus), serif",
+          fontSize: 19,
+          letterSpacing: ".02em",
+          color: "#EDE7D8",
+          textAlign: "center",
+          pointerEvents: "none",
+        }}
+      >
+        {karte.titel}
+      </p>
       <button
         type="button"
         data-lb-close
         onClick={onClose}
-        aria-label={galerie.lightbox.schliessen}
+        aria-label={eventwelten.lightbox.schliessen}
         className="lb-btn focus-cream"
         style={{
           position: "absolute",
@@ -191,7 +207,7 @@ function LightboxArea({
       <button
         type="button"
         onClick={() => onStep(-1)}
-        aria-label={galerie.lightbox.vorheriges}
+        aria-label={eventwelten.lightbox.vorheriges}
         className="lb-btn focus-cream"
         style={{
           position: "absolute",
@@ -224,7 +240,7 @@ function LightboxArea({
       <button
         type="button"
         onClick={() => onStep(1)}
-        aria-label={galerie.lightbox.naechstes}
+        aria-label={eventwelten.lightbox.naechstes}
         className="lb-btn focus-cream"
         style={{
           position: "absolute",
@@ -263,7 +279,7 @@ function LightboxArea({
           margin: 0,
           fontSize: 13,
           letterSpacing: ".24em",
-          color: "#EDE7D8",
+          color: "#B9B29E",
         }}
       >
         {index + 1} / {anzahl}

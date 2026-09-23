@@ -1,10 +1,15 @@
-import type { StaticImageData } from "next/image";
-import galerie1 from "assets/images/galerie-1.webp";
-import galerie2 from "assets/images/galerie-2.webp";
-import galerie3 from "assets/images/galerie-3.webp";
-import galerie4 from "assets/images/galerie-4.webp";
-import galerie5 from "assets/images/galerie-5.webp";
-import galerie6 from "assets/images/galerie-6.webp";
+import eventweltBrauttisch from "assets/images/eventwelt-brauttisch.webp";
+import eventweltCandyBar from "assets/images/eventwelt-candy-bar.webp";
+import eventweltGastgeschenke from "assets/images/eventwelt-gastgeschenke.webp";
+import eventweltGetraenkeStation from "assets/images/eventwelt-getraenke-station.webp";
+import eventweltLichtwandGold from "assets/images/eventwelt-lichtwand-gold.webp";
+import eventweltLichtwandRot from "assets/images/eventwelt-lichtwand-rot.webp";
+import eventweltLimoBar from "assets/images/eventwelt-limo-bar.webp";
+import eventweltLoungeRot from "assets/images/eventwelt-lounge-rot.webp";
+import eventweltLoungeWeiss from "assets/images/eventwelt-lounge-weiss.webp";
+import eventweltTafelBlau from "assets/images/eventwelt-tafel-blau.webp";
+import eventweltTafelRosa from "assets/images/eventwelt-tafel-rosa.webp";
+import eventweltTafelSchwarz from "assets/images/eventwelt-tafel-schwarz.webp";
 import heroBild from "assets/images/hero-bild.webp";
 import leistungCatering from "assets/images/leistung-catering.webp";
 import leistungEventservice from "assets/images/leistung-eventservice.webp";
@@ -14,24 +19,11 @@ import standortLechhausen from "assets/images/standort-lechhausen.webp";
 import standortNeusaess from "assets/images/standort-neusaess.webp";
 import ueberUnsFoto from "assets/images/ueber-uns-foto.webp";
 
-export type Bild = {
-  src: StaticImageData;
-  alt: string;
-};
-
-export type Standort = {
-  name: string;
-  adresse: [string, string];
-  mapsUrl: string;
-  mapsLabel: string;
-  bild: Bild;
-};
-
 export const site = {
   url: "https://bucan-eventservice.de",
   title: "Premium Catering & Eventservice in Günzburg – Bucan GmbH",
   description:
-    "Mediterrane Feinkost, Business Catering und Eventservice – 25 Jahre Erfahrung, alles aus einer Hand. Jetzt unverbindlich Ihr Event anfragen.",
+    "Mediterrane Feinkost, Business Catering und Eventservice mit 25 Jahren Erfahrung, alles aus einer Hand. Jetzt unverbindlich Ihr Event anfragen.",
   impressumTitle: "Impressum – Bucan GmbH",
   impressumDescription:
     "Impressum der Bucan GmbH in Günzburg: Anbieterkennzeichnung, Kontaktdaten und rechtliche Hinweise zu Catering, Feinkost und Eventservice.",
@@ -87,7 +79,7 @@ export const nav = {
 export const hero = {
   script: "Mit Liebe zum Detail.",
   titel: ["Für besondere", "Momente."],
-  text: "Premium Catering, mediterrane Feinkost und Eventservice in Günzburg – seit 25 Jahren.",
+  text: "Premium Catering, mediterrane Feinkost und Eventservice in Günzburg, seit 25 Jahren.",
   ctaPrimary: { label: "Event anfragen", href: "#kontakt" },
   ctaTelefon: { label: kontakt.telefonDisplay, href: kontakt.telefonHref },
   bild: {
@@ -132,7 +124,7 @@ export const leistungen = {
   karten: [
     {
       titel: "Catering & Buffets",
-      text: "Fingerfood, Buffets und Menüs – frisch zubereitet und liebevoll angerichtet, vom kleinen Empfang bis zum großen Event.",
+      text: "Fingerfood, Buffets und Menüs, frisch zubereitet und liebevoll angerichtet, vom kleinen Empfang bis zum großen Event.",
       bild: {
         src: leistungCatering,
         alt: "Reich gedecktes Buffet mit Räucherlachs, Käseplatte, Caprese und frischem Obst",
@@ -142,7 +134,7 @@ export const leistungen = {
     },
     {
       titel: "Mediterrane Feinkost",
-      text: "Antipasti und mediterrane Spezialitäten – unsere Leidenschaft schmeckt man in jeder Kreation.",
+      text: "Antipasti und mediterrane Spezialitäten. Unsere Leidenschaft schmeckt man in jeder Kreation.",
       bild: {
         src: leistungFeinkost,
         alt: "Antipasti-Teller mit Oliven, gefüllter Paprika, Salami, Parmesan, getrockneten Tomaten und Grissini",
@@ -152,10 +144,10 @@ export const leistungen = {
     },
     {
       titel: "Eventservice",
-      text: "Planung, Dekoration, Personal und Service vor Ort. Wir kümmern uns um alles – Sie genießen den Moment.",
+      text: "Planung, Dekoration, Personal und Service vor Ort. Wir kümmern uns um alles, Sie genießen den Moment.",
       bild: {
         src: leistungEventservice,
-        alt: "Festlich eingedeckte Tafel mit Blumengestecken, Weingläsern und weißen Stuhlhussen",
+        alt: "Lounge-Ecke mit Samtsessel, leuchtendem Schmetterling, Kerzenständern und Rosenwand",
       },
       delay: 220,
       link: null,
@@ -202,40 +194,127 @@ export const fuerWen = {
   ],
 } as const;
 
-export const galerie = {
-  eyebrow: "Galerie",
-  titel: "Einblicke in unsere Arbeit",
-  itemLabel: "Bild in Großansicht öffnen",
+export const eventwelten = {
+  eyebrow: "Eventwelten",
+  titel: "Lassen Sie sich inspirieren.",
+  text: "Ein Auszug aus unseren Inszenierungen, jede davon individuell auf Anlass, Raum und Farben abgestimmt.",
+  itemLabel: "in Großansicht öffnen",
+  vorherige: "Vorherige Bilder",
+  naechste: "Nächste Bilder",
   lightbox: {
-    label: "Galerie-Großansicht",
+    label: "Eventwelten-Großansicht",
     schliessen: "Großansicht schließen",
     vorheriges: "Vorheriges Bild",
     naechstes: "Nächstes Bild",
   },
-  bilder: [
+  karten: [
     {
-      src: galerie1,
-      alt: "Feine Canapés mit Tomate, Olive und Erdbeeren auf weißen Platten",
+      titel: "Tafel in Schwarz & Gold",
+      zeile: "Kerzenlicht, Pampasgras und goldene Akzente",
+      position: "50% 56%",
+      bild: {
+        src: eventweltTafelSchwarz,
+        alt: "Festliche Tafel in Schwarz und Gold mit Kerzen, roten Rosen und Pampasgras vor einem leuchtenden Herzbogen",
+      },
     },
     {
-      src: galerie2,
-      alt: "Elegantes Dessertbuffet mit Schichtdesserts im Glas auf einer Etagere",
+      titel: "Hochzeitstafel in Blau",
+      zeile: "Weiße Rosen, Taubenblau und Blumenbogen",
+      position: "50% 54%",
+      bild: {
+        src: eventweltTafelBlau,
+        alt: "Hochzeitstafel in Weiß und Taubenblau mit Rosen, Kerzen und goldenem Blumenbogen",
+      },
     },
     {
-      src: galerie3,
-      alt: "Festlich geschmückte Hochzeitstafel mit Blumengestecken und goldenen Stühlen",
+      titel: "Brauttisch im Tageslicht",
+      zeile: "Rundbogen, Blütenpracht und Tageslicht",
+      position: "50% 58%",
+      bild: {
+        src: eventweltBrauttisch,
+        alt: "Brauttisch mit rosafarbenem Tischläufer, Blumengestecken und weißem Rundbogen vor großen Fenstern",
+      },
     },
     {
-      src: galerie4,
-      alt: "Bunt angerichtete Snackplatte mit frischem Gemüse, Mais und Dips",
+      titel: "Geburtstagstafel in Rosé",
+      zeile: "Kerzenleuchter, Schleifen und Rosen",
+      position: "50% 12%",
+      bild: {
+        src: eventweltTafelRosa,
+        alt: "Geburtstagstafel in Rosé mit Kerzenleuchtern, Schleifen und Blumen vor einer „Happy Birthday“-Leuchtschrift",
+      },
     },
     {
-      src: galerie5,
-      alt: "Fingerfood-Häppchen auf Porzellanlöffeln, angerichtet auf einem Holzbrett",
+      titel: "Lounge in Weiß & Gold",
+      zeile: "Samt, Gold und eine Wand aus Blüten",
+      position: "50% 50%",
+      bild: {
+        src: eventweltLoungeWeiss,
+        alt: "Weiße Samt-Lounge mit goldenem Glastisch vor einer Blumenwand und „Better Together“-Leuchtschrift",
+      },
     },
     {
-      src: galerie6,
-      alt: "Olivenzweig mit grünen Oliven in Nahaufnahme",
+      titel: "Lounge in Bordeaux",
+      zeile: "Rote Rosen und warmes Licht",
+      position: "50% 50%",
+      bild: {
+        src: eventweltLoungeRot,
+        alt: "Rote Samt-Lounge mit Hockern und goldenem Glastisch vor Rosenarrangements und Leuchtschrift",
+      },
+    },
+    {
+      titel: "Lichtwände in Gold",
+      zeile: "Leuchtende Blattformen als Raumteiler",
+      position: "50% 50%",
+      bild: {
+        src: eventweltLichtwandGold,
+        alt: "Beleuchtete Deko-Paneele in Blattform mit weißen Blumen auf Marmorboden",
+      },
+    },
+    {
+      titel: "Lichtwände in Rot",
+      zeile: "Dramatisches Licht in Rot und Gold",
+      position: "50% 50%",
+      bild: {
+        src: eventweltLichtwandRot,
+        alt: "Rot beleuchtete Deko-Paneele in Blattform mit roten Rosen und Kerzenständern",
+      },
+    },
+    {
+      titel: "Candy Bar",
+      zeile: "Süße Highlights für Groß und Klein",
+      position: "50% 4%",
+      bild: {
+        src: eventweltCandyBar,
+        alt: "Candy Bar mit Bonbongläsern, Schokoriegeln und Kerzen vor einem leuchtenden Schriftzug",
+      },
+    },
+    {
+      titel: "Limo Bar",
+      zeile: "Erfrischende Drinks mit Zitrus und Minze",
+      position: "50% 6%",
+      bild: {
+        src: eventweltLimoBar,
+        alt: "Limo Bar mit Getränkespendern und Gläsern mit Orangenscheiben vor einer beleuchteten Steinwand",
+      },
+    },
+    {
+      titel: "Getränkestation",
+      zeile: "Kristallspender mit fruchtigen Kreationen",
+      position: "40% 38%",
+      bild: {
+        src: eventweltGetraenkeStation,
+        alt: "Getränkestation mit vier Kristallspendern, Rosen und Gastgeschenken auf rosafarbener Tischdecke",
+      },
+    },
+    {
+      titel: "Gastgeschenke",
+      zeile: "Kleine Aufmerksamkeiten mit großer Wirkung",
+      position: "50% 60%",
+      bild: {
+        src: eventweltGastgeschenke,
+        alt: "Gastgeschenke in weißen Schachteln mit Satinschleifen, Fläschchen und Keksen im Korb",
+      },
     },
   ],
 } as const;
@@ -248,7 +327,7 @@ export const zitat = {
 export const feinkost = {
   eyebrow: "Symirna Foods",
   titel: "Täglich frisch. An drei Standorten.",
-  text: "Mediterrane Feinkost für jeden Tag: Bei Symirna Foods gibt es hausgemachte Pasten und Aufstriche, Antipasti, Oliven und Spezialitäten – frisch an der Theke, zum Probieren und zum Mitnehmen.",
+  text: "Mediterrane Feinkost für jeden Tag: Bei Symirna Foods gibt es hausgemachte Pasten und Aufstriche, Antipasti, Oliven und Spezialitäten, frisch an der Theke, zum Probieren und zum Mitnehmen.",
   standorte: [
     {
       name: "Kaufland Neusäß",

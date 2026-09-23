@@ -345,6 +345,72 @@ button {
   }
 }
 
+[data-ew-kopf] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto 44px;
+}
+[data-ew-pfeile] {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+[data-ew-pfeil] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  cursor: pointer;
+}
+[data-ew-pfeil]:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+[data-ew-spur] {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px max(clamp(20px, 5vw, 40px), calc((100% - 1180px) / 2));
+  scroll-padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1180px) / 2));
+  scrollbar-width: none;
+}
+[data-ew-spur]::-webkit-scrollbar {
+  display: none;
+}
+[data-ew-karte] {
+  position: relative;
+  display: block;
+  flex: 0 0 clamp(250px, 26vw, 340px);
+  aspect-ratio: 3 / 4.15;
+  padding: 0;
+  border: 0;
+  background: #173022;
+  overflow: hidden;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+@media (max-width: 719px) {
+  [data-ew-pfeile] {
+    display: none;
+  }
+  [data-ew-spur] {
+    gap: 14px;
+  }
+  [data-ew-karte] {
+    flex-basis: 76vw;
+  }
+}
+
 .lnk-nav {
   color: #ede7d8;
 }

@@ -1,7 +1,7 @@
 import AblaufSection from "./AblaufSection";
+import EventweltenSection from "./EventweltenSection";
 import FeinkostSection from "./FeinkostSection";
 import FuerWenSection from "./FuerWenSection";
-import GalerieSection from "./GalerieSection";
 import HeroSection from "./HeroSection";
 import KontaktSection from "./KontaktSection";
 import LeistungenSection from "./LeistungenSection";
@@ -20,9 +20,9 @@ function HomePage() {
         <HeroSection />
         <WerteSection />
         <LeistungenSection />
+        <EventweltenSection />
         <UeberUnsSection />
         <FuerWenSection />
-        <GalerieSection />
         <ZitatSection />
         <FeinkostSection />
         <WaveDivider
